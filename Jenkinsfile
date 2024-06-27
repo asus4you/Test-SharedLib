@@ -25,3 +25,6 @@ pipeline {
                               string(name: 'PARAM1', value: "${params.PARAM1}")
                           ]
                 }
+            }
+        }
+    }
