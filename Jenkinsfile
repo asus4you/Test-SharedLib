@@ -17,14 +17,4 @@ pipeline {
         
         stage('Trigger Downstream Job') {
             steps {
-                script {
-                    // Triggering the downstream job with parameters
-                    build job: "/downstream-multibranch-pipeline/${params.BRANCH_NAME}", 
-                          parameters: [
-                              string(name: 'BRANCH_NAME', value: "${params.BRANCH_NAME}"),
-                              string(name: 'PARAM1', value: "${params.PARAM1}")
-                          ]
-                }
-            }
-        }
-    }
+       
