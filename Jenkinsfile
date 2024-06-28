@@ -14,16 +14,16 @@ pipeline {
                 // Use the parameters in the steps
                 echo "Parameter 1: ${params.PARAM1}"
                 echo "Parameter 2: ${params.PARAM2}"
-                // echo "Flag: ${params.FLAG}"
             }
         }
         stage('triggerChildJob') {
             steps {
                 script {
                     // Set environment variables
-                    withEnv(["PARAM1=${params.PARAM1}", "PARAM2=${params.PARAM2}", "FLAG=${params.FLAG}"]) {
+                    withEnv(["PARAM1=${params.PARAM1}", "PARAM2=${params.PARAM2}"]) {
                         // Trigger the child job without passing any parameters explicitly
                         build job: "pipeline-triggered-job", wait: true
+                    }
                 }
             }
         }
