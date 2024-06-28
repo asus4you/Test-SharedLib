@@ -14,7 +14,7 @@ pipeline {
                 // Use the parameters in the steps
                 echo "Parameter 1: ${params.PARAM1}"
                 echo "Parameter 2: ${params.PARAM2}"
-                echo "Flag: ${params.FLAG}"
+                // echo "Flag: ${params.FLAG}"
             }
         }
         stage('triggerChildJob') {
