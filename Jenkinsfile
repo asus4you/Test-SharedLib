@@ -19,11 +19,12 @@ pipeline {
         stage('triggerChildJob') {
             steps {
                 script {
-                    // Set environment variables
-                    withEnv(["PARAM1=${params.PARAM1}", "PARAM2=${params.PARAM2}"]) {
+                    def buildParams = [
+                        [$class: 'StringParameterValue', name: 'PARAM1', value: params.PARAM1],
+                        [$class: 'StringParameterValue', name: 'PARAM2', value: params.PARAM2]
+                    ]
                         // Trigger the child job without passing any parameters explicitly
-                        build job: "pipeline-triggered-job", wait: true
-                    }
+                        build job: "pipeline-triggered-job", parameters: buildParams, wait: true
                 }
             }
         }
