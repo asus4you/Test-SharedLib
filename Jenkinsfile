@@ -5,7 +5,6 @@ pipeline {
     parameters {
         string(name: 'PARAM1', defaultValue: 'default_value1', description: 'Description for parameter 1')
         string(name: 'PARAM2', defaultValue: 'default_value2', description: 'Description for parameter 2')
-        boolean(name: 'FLAG', defaultValue: true, description: 'A boolean flag')
     }
     
     stages {
